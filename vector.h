@@ -1,34 +1,30 @@
 #pragma once
 #include <array>
 
-
-namespace my_data_structure
-{
 template<typename ElemType>
 class vector
 {
 public:
 	//constructor
-	vector(std::initializer_list<ElemType> list)
+	vector(std::initializer_list<ElemType> il)
 	{
-		_size = list.size();
+		_size = il.size();
 		_capacity = _size;
 		_pointer = new ElemType[_size];
-		for (size_t i = 0; i < _size; i++)
+		for (size_t i = 0; i < _size; ++i)
 		{
-			_pointer[i] = *(list.begin() + i);
+			_pointer[i] = *(il.begin() + i);
 		}
 	}
+
 	template<ElemType,size_t N>
 	vector(std::array<ElemType, N> array)
 	{
 		_size = array.size();
 		_capacity = _size;
 		_pointer = new ElemType[_size];
-		for (size_t i = 0; i < _size; i++)
-		{
-			_pointer[i] = array[i];
-		}
+        for (size_t i = 0; i < _size; i++)
+            _pointer[i] = array[i];
 	}
 	explicit  vector(int size=0)
 	{
@@ -44,7 +40,7 @@ public:
 	{
 		return _capacity;
 	}
-	//distructor
+	//destructor
 	~vector()
 	{
 		delete[] _pointer;
@@ -100,4 +96,3 @@ private:
 	
 };
 
-}

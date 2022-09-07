@@ -23,7 +23,7 @@
 # Compiled Static libraries
 *.lai
 *.la
-*.a
+*.data_ptr
 *.lib
 
 # Executables

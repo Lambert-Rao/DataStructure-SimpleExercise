@@ -1,16 +1,14 @@
 #include <iostream>
 #include <algorithm>
 
+#include "Matrix.h"
 #include "vector.h"
-#include "list.h"
+
 int main()
 {
-	my_data_structure::vector<int> v{ 1,2,3,4,5 };
-    std::cout << "vector: ";
-    for (auto i : v)
-    {
-        std::cout << i << " ";
-    }
-    std::cout << std::endl;
-    
+
+    Matrix a(3,5,{1,2,3,4,5,6,7,8,9,10,11,12,13,14,15});
+    a.print_all();
+    Matrix b(a);
+    (a+b).transpose().print_all();
 }
