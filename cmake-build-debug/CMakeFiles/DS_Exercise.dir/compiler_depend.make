@@ -183,7 +183,13 @@ CMakeFiles/DS_Exercise.dir/Matrix.cpp.obj: ../Matrix.cpp \
   C:/Program\ Files/JetBrains/CLion\ 2022.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/pstl/execution_defs.h \
   C:/Program\ Files/JetBrains/CLion\ 2022.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/list \
   C:/Program\ Files/JetBrains/CLion\ 2022.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_list.h \
-  C:/Program\ Files/JetBrains/CLion\ 2022.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/list.tcc
+  C:/Program\ Files/JetBrains/CLion\ 2022.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/list.tcc \
+  C:/Program\ Files/JetBrains/CLion\ 2022.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/map \
+  C:/Program\ Files/JetBrains/CLion\ 2022.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_tree.h \
+  C:/Program\ Files/JetBrains/CLion\ 2022.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/node_handle.h \
+  C:/Program\ Files/JetBrains/CLion\ 2022.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_map.h \
+  C:/Program\ Files/JetBrains/CLion\ 2022.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_multimap.h \
+  C:/Program\ Files/JetBrains/CLion\ 2022.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/erase_if.h
 
 CMakeFiles/DS_Exercise.dir/main.cpp.obj: ../main.cpp \
   C:/Program\ Files/JetBrains/CLion\ 2022.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/iostream \
@@ -384,6 +390,10 @@ CMakeFiles/DS_Exercise.dir/main.cpp.obj: ../main.cpp \
   C:/Program\ Files/JetBrains/CLion\ 2022.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/list \
   C:/Program\ Files/JetBrains/CLion\ 2022.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_list.h \
   C:/Program\ Files/JetBrains/CLion\ 2022.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/list.tcc \
+  C:/Program\ Files/JetBrains/CLion\ 2022.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/map \
+  C:/Program\ Files/JetBrains/CLion\ 2022.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_tree.h \
+  C:/Program\ Files/JetBrains/CLion\ 2022.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_map.h \
+  C:/Program\ Files/JetBrains/CLion\ 2022.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_multimap.h \
   ../vector.h
 
 
@@ -765,6 +775,18 @@ C:/Program\ Files/JetBrains/CLion\ 2022.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32
 
 C:/Program\ Files/JetBrains/CLion\ 2022.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/list.tcc:
 
+C:/Program\ Files/JetBrains/CLion\ 2022.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/map:
+
+C:/Program\ Files/JetBrains/CLion\ 2022.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_tree.h:
+
+C:/Program\ Files/JetBrains/CLion\ 2022.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/node_handle.h:
+
+C:/Program\ Files/JetBrains/CLion\ 2022.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_map.h:
+
+C:/Program\ Files/JetBrains/CLion\ 2022.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_multimap.h:
+
+C:/Program\ Files/JetBrains/CLion\ 2022.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/erase_if.h:
+
 ../main.cpp:
 
 C:/Program\ Files/JetBrains/CLion\ 2022.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/algorithm:
@@ -778,10 +800,6 @@ C:/Program\ Files/JetBrains/CLion\ 2022.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32
 C:/Program\ Files/JetBrains/CLion\ 2022.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/std_function.h:
 
 C:/Program\ Files/JetBrains/CLion\ 2022.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/hashtable.h:
-
-C:/Program\ Files/JetBrains/CLion\ 2022.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/node_handle.h:
-
-C:/Program\ Files/JetBrains/CLion\ 2022.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/erase_if.h:
 
 C:/Program\ Files/JetBrains/CLion\ 2022.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/vector:
 

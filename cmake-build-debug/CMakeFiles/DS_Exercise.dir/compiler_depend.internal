@@ -185,6 +185,12 @@ CMakeFiles/DS_Exercise.dir/Matrix.cpp.obj
  C:/Program Files/JetBrains/CLion 2022.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/list
  C:/Program Files/JetBrains/CLion 2022.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_list.h
  C:/Program Files/JetBrains/CLion 2022.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/list.tcc
+ C:/Program Files/JetBrains/CLion 2022.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/map
+ C:/Program Files/JetBrains/CLion 2022.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_tree.h
+ C:/Program Files/JetBrains/CLion 2022.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/node_handle.h
+ C:/Program Files/JetBrains/CLion 2022.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_map.h
+ C:/Program Files/JetBrains/CLion 2022.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_multimap.h
+ C:/Program Files/JetBrains/CLion 2022.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/erase_if.h
 
 CMakeFiles/DS_Exercise.dir/main.cpp.obj
  D:/Code/c++/DataStructure/main.cpp
@@ -386,5 +392,9 @@ CMakeFiles/DS_Exercise.dir/main.cpp.obj
  C:/Program Files/JetBrains/CLion 2022.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/list
  C:/Program Files/JetBrains/CLion 2022.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_list.h
  C:/Program Files/JetBrains/CLion 2022.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/list.tcc
+ C:/Program Files/JetBrains/CLion 2022.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/map
+ C:/Program Files/JetBrains/CLion 2022.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_tree.h
+ C:/Program Files/JetBrains/CLion 2022.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_map.h
+ C:/Program Files/JetBrains/CLion 2022.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_multimap.h
  D:/Code/c++/DataStructure/vector.h
 

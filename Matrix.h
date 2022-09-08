@@ -1,6 +1,7 @@
 #include<iostream>
 #include<memory>
 #include<list>
+#include<map>
 #include <initializer_list>
 
 using namespace std;
@@ -46,6 +47,11 @@ class SparseMatrix {
 public:
     SparseMatrix transpose();
     SparseMatrix (int row, int col, std::initializer_list<point> il);
+    SparseMatrix (const SparseMatrix<T> &rhs);
+    SparseMatrix(int row, int col, map<pair<int, int>, T> m_data);
+    SparseMatrix<T>& operator=(const SparseMatrix<T> &rhs);
+    SparseMatrix<T> operator+(const SparseMatrix &rhs) const;
+    SparseMatrix<T> operator-(const SparseMatrix &rhs) const;
 private:
     int row{}, col{};
     std::list<point> data;
@@ -67,3 +73,57 @@ SparseMatrix<T> SparseMatrix<T>::transpose() {
     }
     return temp;
 }
+
+template<typename T>
+SparseMatrix<T> SparseMatrix<T>::operator+(const SparseMatrix<T> &rhs) const {
+    if(row!=rhs.row||col!=rhs.col)
+        cerr<<"矩阵形状不匹配"<<endl;
+    map<std::pair<int, int>, T> temp_map;
+    for(auto it=data.begin();it!=data.end();it++){
+        temp_map[it->first]=it->second;
+    }
+    for(auto it = rhs.data.begin();it!=rhs.data.end();it++){
+        temp_map[it->first]+=it->second;
+    }
+    SparseMatrix<T> temp(row,col,temp_map);
+    return std::move(temp);
+}
+
+template<typename T>
+SparseMatrix<T>::SparseMatrix(const SparseMatrix& rhs) {
+    this->row=rhs.row;
+    this->col=rhs.col;
+    for(auto it=rhs.data.begin();it!=rhs.data.end();it++){
+        data.push_back(std::make_pair(std::make_pair(it->first.first,it->first.second),it->second));
+    }
+
+}
+
+template<typename T>
+SparseMatrix<T> &SparseMatrix<T>::operator=(const SparseMatrix<T> &rhs) {
+    this->col=rhs.col;
+    this->row=rhs.row;
+    for(auto it=rhs.data.begin();it!=rhs.data.end();it++){
+        data.push_back(std::make_pair(std::make_pair(it->first.first,it->first.second),it->second));
+    }
+}
+
+template<typename T>
+SparseMatrix<T> SparseMatrix<T>::operator-(const SparseMatrix<T> &rhs) const {
+    SparseMatrix<T> m(rhs);
+    for(auto it=m.data.begin();it!=m.data.end();it++){
+        it->second=-it->second;
+    }
+    return *this+m;
+}
+
+template<typename T>
+SparseMatrix<T>::SparseMatrix(int row, int col, map<pair<int, int>, T> m_data) {
+    this->row=row;
+    this->col=col;
+    for(auto it=m_data.begin();it!=m_data.end();it++){
+        data.push_back(std::make_pair(std::make_pair(it->first.first,it->first.second),it->second));
+    }
+
+}
+
