@@ -7,8 +7,10 @@
 int main()
 {
 
-    Matrix a(3,5,{1,2,3,4,5,6,7,8,9,10,11,12,13,14,15});
-    a.print_all();
-    Matrix b(a);
-    (a+b).transpose().print_all();
+    SparseMatrix<int> m1(3, 3, {{{0, 0}, 1}, {{0, 1}, 2}, {{1, 1}, 3}, {{2, 2}, 4}});
+
+    std::cout<<m1;
+    m1.transpose();
+    std::cout<<m1;
+    std::cout<<m1.transpose();
 }

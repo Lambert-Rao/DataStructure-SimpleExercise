@@ -180,7 +180,10 @@ CMakeFiles/DS_Exercise.dir/Matrix.cpp.obj: ../Matrix.cpp \
   C:/Program\ Files/JetBrains/CLion\ 2022.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stream_iterator.h \
   C:/Program\ Files/JetBrains/CLion\ 2022.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/uses_allocator_args.h \
   C:/Program\ Files/JetBrains/CLion\ 2022.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/pstl/glue_memory_defs.h \
-  C:/Program\ Files/JetBrains/CLion\ 2022.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/pstl/execution_defs.h
+  C:/Program\ Files/JetBrains/CLion\ 2022.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/pstl/execution_defs.h \
+  C:/Program\ Files/JetBrains/CLion\ 2022.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/list \
+  C:/Program\ Files/JetBrains/CLion\ 2022.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_list.h \
+  C:/Program\ Files/JetBrains/CLion\ 2022.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/list.tcc
 
 CMakeFiles/DS_Exercise.dir/main.cpp.obj: ../main.cpp \
   C:/Program\ Files/JetBrains/CLion\ 2022.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/iostream \
@@ -378,6 +381,9 @@ CMakeFiles/DS_Exercise.dir/main.cpp.obj: ../main.cpp \
   C:/Program\ Files/JetBrains/CLion\ 2022.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/ranges_uninitialized.h \
   C:/Program\ Files/JetBrains/CLion\ 2022.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/uses_allocator_args.h \
   C:/Program\ Files/JetBrains/CLion\ 2022.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/pstl/glue_memory_defs.h \
+  C:/Program\ Files/JetBrains/CLion\ 2022.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/list \
+  C:/Program\ Files/JetBrains/CLion\ 2022.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_list.h \
+  C:/Program\ Files/JetBrains/CLion\ 2022.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/list.tcc \
   ../vector.h
 
 
@@ -752,6 +758,12 @@ C:/Program\ Files/JetBrains/CLion\ 2022.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32
 C:/Program\ Files/JetBrains/CLion\ 2022.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/pstl/glue_memory_defs.h:
 
 C:/Program\ Files/JetBrains/CLion\ 2022.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/pstl/execution_defs.h:
+
+C:/Program\ Files/JetBrains/CLion\ 2022.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/list:
+
+C:/Program\ Files/JetBrains/CLion\ 2022.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_list.h:
+
+C:/Program\ Files/JetBrains/CLion\ 2022.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/list.tcc:
 
 ../main.cpp:
 

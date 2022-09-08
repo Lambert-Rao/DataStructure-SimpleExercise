@@ -1,14 +1,5 @@
 #include "Matrix.h"
 
-Matrix::Matrix(int row, int col) {
-    this->row = row;
-    this->col = col;
-    this->data_ptr = new int *[row];
-    for (int i = 0; i < this->row; i++) {
-        data_ptr[i] = new int[this->col];
-    }
-}
-
 
 Matrix::Matrix(int row, int col, int num) {
     this->row = row;
@@ -48,7 +39,7 @@ Matrix::Matrix(const Matrix &rhs) {
     }
 }
 
-Matrix Matrix::operator*(const Matrix &rhs) {
+Matrix Matrix::operator*(const Matrix &rhs) const {
     if (this->col != rhs.row) {
         cerr << "shape error" << endl;
         exit(0);
@@ -66,7 +57,7 @@ Matrix Matrix::operator*(const Matrix &rhs) {
     return m;
 }
 
-Matrix Matrix::operator+(const Matrix &rhs) {
+Matrix Matrix::operator+(const Matrix &rhs) const {
     if (this->col != rhs.col || this->row != rhs.row) {
         cerr << "shape error" << endl;
     }
@@ -79,7 +70,7 @@ Matrix Matrix::operator+(const Matrix &rhs) {
     return m;
 }
 
-Matrix Matrix::operator-(const Matrix &rhs) {
+Matrix Matrix::operator-(const Matrix &rhs) const {
     if (this->col != rhs.col or this->row != rhs.row) {
         cout << "shape error" << endl;
     }
@@ -92,17 +83,17 @@ Matrix Matrix::operator-(const Matrix &rhs) {
     return m;
 }
 
-string Matrix::shape() {
+string Matrix::shape() const {
     string s = "(" + to_string(this->row) + "," + to_string(this->col) + ")";
     return s;
 }
 
-void Matrix::print_all() {
+void Matrix::print_all(std::ostream& os) const {
     for (int i = 0; i < this->row; i++) {
         for (int j = 0; j < this->col; j++) {
-            cout << this->data_ptr[i][j] << " ";
+            os << this->data_ptr[i][j] << " ";
         }
-        cout << endl;
+        os << endl;
     }
 }
 
@@ -148,14 +139,15 @@ Matrix &Matrix::operator-=(const Matrix &rhs) {
     return *this;
 }
 
-Matrix Matrix::transpose() {
+Matrix Matrix::transpose() const {
     Matrix m(this->col, this->row);
     for (int i = 0; i < this->row; i++) {
         for (int j = 0; j < this->col; j++) {
-            m.data_ptr[j][i] = this->data_ptr[i][j];
+            std::swap(m.data_ptr[j][i],this->data_ptr[i][j]) ;
         }
     }
     return m;
 }
+
 
 
