@@ -3,17 +3,19 @@
 
 #include "Matrix.h"
 #include "vector.h"
+#include "list.h"
 
-int main()
-{
+using namespace std;
 
-    SparseMatrix<int> m1(3, 3, {{{0, 0}, 1}, {{0, 1}, 2}, {{1, 1}, 3}, {{2, 2}, 4}});
-
-    std::cout<<m1;
-    SparseMatrix<int> m2 = m1.transpose();
-    std::cout<<m2;
-    SparseMatrix<int> m3 = m1 + m2;
-    std::cout<<m3<<endl;
-    cout<<m1-m2;
-
+int main() {
+    try {
+        List<int> list{1, 2, 3, 4, 5};
+        cout << list << endl<<endl;
+        list.erase(2);
+        cout << static_cast<string>(list) << endl;
+        cout << endl << "?" << list.index_of(2);
+    }
+    catch (const std::exception &e) {
+        std::cerr << e.what() << std::endl;
+    }
 }

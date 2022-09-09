@@ -6,4 +6,4 @@ set(CMAKE_CXX_STANDARD 20)
 
 
 
-add_executable(DS_Exercise main.cpp Matrix.cpp Matrix.h vector.h)
+add_executable(DS_Exercise main.cpp Matrix.cpp Matrix.h vector.h list.h)

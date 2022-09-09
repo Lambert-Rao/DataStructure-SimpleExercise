@@ -1,3 +1,0 @@
-"C:\Program Files\JetBrains\CLion 2022.1.1\bin\cmake\win\bin\cmake.exe" -E rm -f CMakeFiles\DS_Exercise.dir/objects.a
-C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\ar.exe qc CMakeFiles\DS_Exercise.dir/objects.a @CMakeFiles\DS_Exercise.dir\objects1.rsp
-C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\G__~1.EXE -g -Wl,--whole-archive CMakeFiles\DS_Exercise.dir/objects.a -Wl,--no-whole-archive -o DS_Exercise.exe -Wl,--out-implib,libDS_Exercise.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\DS_Exercise.dir\linklibs.rsp

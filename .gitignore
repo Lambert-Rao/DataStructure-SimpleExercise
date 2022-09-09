@@ -33,3 +33,6 @@
 
 # i don't know
 .vs
+/cmake-build-debug
+/out
+.idea
