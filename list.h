@@ -41,6 +41,7 @@ public:
     void insert(int index, const T &rhs);
 
     void push_back(const T &data);
+    T pop_back();
 
     explicit operator string() const;
 
@@ -67,10 +68,20 @@ List<T>::~List() {
 template<typename T>
 T List<T>::operator[](int index) const {
     check_index(index);
-    ListNode<T> *p = head;
-    for (int i = 0; i < index; i++)
-        p = p->next;
-    return p->element;
+    if(index<size/2)
+    {
+        ListNode<T> *p = head;
+        for (int i = 0; i < index; i++)
+            p = p->next;
+        return p->element;
+    }
+    else
+    {
+        ListNode<T> *p = tail;
+        for (int i = size-1; i > index; i--)
+            p = p->prev;
+        return p->element;
+    }
 }
 
 template<typename T>
@@ -166,6 +177,23 @@ void List<T>::check_index(int index) const {
     if (index < 0 || index >= size)
         throw std::out_of_range("index out of range");
 
+}
+
+template<typename T>
+T List<T>::pop_back() {
+    if (head == nullptr)
+        throw std::out_of_range("list is empty");
+    T data = tail->element;
+    if (head == tail) {
+        delete head;
+        head = nullptr;
+        tail = nullptr;
+    } else {
+        tail = tail->prev;
+        delete tail->next;
+        tail->next = nullptr;
+    }
+    return data;
 }
 
 template<typename T>
