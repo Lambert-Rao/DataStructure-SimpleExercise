@@ -2,11 +2,11 @@
 #include <array>
 
 template<typename ElemType>
-class vector
+class Vector
 {
 public:
 	//constructor
-	vector(std::initializer_list<ElemType> il)
+	Vector(std::initializer_list<ElemType> il)
 	{
 		_size = il.size();
 		_capacity = _size;
@@ -18,7 +18,7 @@ public:
 	}
 
 	template<ElemType,size_t N>
-	vector(std::array<ElemType, N> array)
+	Vector(std::array<ElemType, N> array)
 	{
 		_size = array.size();
 		_capacity = _size;
@@ -26,10 +26,10 @@ public:
         for (size_t i = 0; i < _size; i++)
             _pointer[i] = array[i];
 	}
-	explicit  vector(int size=0)
+	explicit  Vector(int capacity=0)
 	{
-		_size = size;
-		_capacity = _size;
+		_size = 0;
+		_capacity = capacity;
 		_pointer = new ElemType[_size];
 	}
 	size_t size() const
@@ -41,7 +41,7 @@ public:
 		return _capacity;
 	}
 	//destructor
-	~vector()
+	~Vector()
 	{
 		delete[] _pointer;
 	}
@@ -65,6 +65,8 @@ public:
 	}
 	ElemType &operator[](size_t index)
 	{
+        if(index>=_size || index<0)
+            throw std::out_of_range("index out of range");
 		return _pointer[index];
 	}
 	ElemType pop_back()
@@ -77,7 +79,7 @@ public:
 	{
 		if (_size == _capacity)
 		{
-			_capacity *= 2;
+			_capacity =_capacity* 2+1;
 			ElemType *temp = new ElemType[_capacity];
 			for (size_t i = 0; i < _size; i++)
 			{
@@ -90,7 +92,11 @@ public:
 		_size++;
 		return elem;
 	}
-private:
+    bool empty() const {
+        return _size == 0;
+    }
+
+protected:
 	size_t _size{ 0 }, _capacity{ 0 };
 	ElemType* _pointer{ nullptr };
 	

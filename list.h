@@ -1,3 +1,5 @@
+#pragma once
+
 #include <stdexcept>
 #include <sstream>
 
@@ -13,7 +15,7 @@ public:
 
     ListNode(const T &data, ListNode<T> *next, ListNode<T> *prev) : element(data), next(next), prev(prev) {}
 
-private:
+protected:
     T element;
     ListNode<T> *next = nullptr;
     ListNode<T> *prev = nullptr;
@@ -30,6 +32,7 @@ public:
 
     List(initializer_list<T> il);
 
+    bool empty() const;
     ~List();
 
     void erase(int index);
@@ -42,6 +45,7 @@ public:
 
     void push_back(const T &data);
     T pop_back();
+    T& last() const;
 
     explicit operator string() const;
 
@@ -102,7 +106,7 @@ void List<T>::push_back(const T &data) {
         tail->next = new ListNode<T>(data, nullptr, tail);
         tail = tail->next;
     }
-
+    ++size;
 }
 
 template<typename T>
@@ -193,7 +197,18 @@ T List<T>::pop_back() {
         delete tail->next;
         tail->next = nullptr;
     }
+    --size;
     return data;
+}
+
+template<typename T>
+bool List<T>::empty() const{
+    return head == nullptr;
+}
+
+template<typename T>
+T &List<T>::last() const {
+    return tail->element;
 }
 
 template<typename T>
