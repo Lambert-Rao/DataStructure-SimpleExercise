@@ -14,6 +14,7 @@ public:
     virtual bool empty() const = 0;
     virtual int size() const = 0;
     virtual T& top() const = 0;
+    virtual T pop() = 0;
     virtual void push(const T &data) = 0;
 };
 
@@ -24,6 +25,7 @@ public:
     bool empty() const override { return Vector<T>::empty(); }
     int size() const override { return Vector<T>::size(); }
     T& top() const override { return Vector<T>::_pointer[size() - 1]; }
+    T pop() override { return Vector<T>::pop_back(); }
     void push(const T &data) override { Vector<T>::push_back(data); }
 };
 

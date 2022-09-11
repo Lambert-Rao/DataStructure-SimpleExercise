@@ -5,16 +5,10 @@
 #include "Vector.h"
 #include "list.h"
 #include "stack.h"
+#include "stack_application.h"
+
 using namespace std;
 
 int main() {
-    try {
-    ListStack<int> s;
-    s.push(1);
-    s.push(2);
-    cout<<s.top()<<endl<<s.size()<<endl;
-    }
-    catch (const std::exception &e) {
-        std::cerr << e.what() << std::endl;
-    }
+    stack_application_switchbox::test({1,2,2,1,3,3,4,4,5,5,6,6,7,7,8,8});
 }
