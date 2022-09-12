@@ -10,5 +10,5 @@
 using namespace std;
 
 int main() {
-    stack_application_switchbox::test({1,2,2,1,3,3,4,4,5,5,6,6,7,7,8,8});
+    stack_application_maze::test();
 }
