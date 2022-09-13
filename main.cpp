@@ -6,9 +6,12 @@
 #include "list.h"
 #include "stack.h"
 #include "stack_application.h"
+#include "queue_application.h"
+#include "queue.h"
 
 using namespace std;
 
 int main() {
-    stack_application_maze::test();
+    queue_application_arrangetrains::Test();
+
 }

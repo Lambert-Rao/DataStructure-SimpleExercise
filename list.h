@@ -15,9 +15,9 @@ public:
 
     ListNode(const T &data, ListNode<T> *next, ListNode<T> *prev) : element(data), next(next), prev(prev) {}
 
-protected:
     T element;
     ListNode<T> *next = nullptr;
+protected:
     ListNode<T> *prev = nullptr;
 };
 

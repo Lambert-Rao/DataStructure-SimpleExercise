@@ -18,7 +18,7 @@ public:
 
     int size() const { return (_rear - _front + capacity) % capacity; }
 
-    int &front() const { return queue[_front]; }
+    int &front() const { return queue[(_front+1)%capacity]; }
 
     int &rear() const { return queue[_rear]; }
 
@@ -39,7 +39,7 @@ int *queue;
 
     void changeSize() {
         using namespace std;
-        int *new_queue = new int[capacity * 2+1];
+        int *new_queue = new int[capacity * 2];
         int start = (_front + 1) % capacity;
         if (start < 2) {
             copy(queue + start, queue + start + capacity - 1, new_queue);
@@ -49,7 +49,7 @@ int *queue;
         }
         _front = capacity * 2 - 1;
         _rear = capacity - 2;
-        capacity = capacity*2+1;
+        capacity = capacity*2;
         delete[] queue;
         queue = new_queue;
     }
@@ -58,8 +58,7 @@ int *queue;
 template<typename T>
 class linkedQueue {
 public:
-    linkedQueue() = default;
-
+    linkedQueue() : _size(0), _front(nullptr), _rear(nullptr) {}
     ~linkedQueue() { clear(); }
 
     bool empty() const { return _front == nullptr; }
@@ -70,11 +69,13 @@ public:
 
     T &rear() const { return _rear->element; }
 
-    void pop() {
+    auto pop() {
         auto old = _front;
+        auto temp= old->element;
         _front = _front->next;
         delete old;
         _size--;
+        return temp;
     }
 
     void push(const T &data) {
