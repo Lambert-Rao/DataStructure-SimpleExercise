@@ -60,7 +60,7 @@ class linkedQueue {
 public:
     linkedQueue() : _size(0), _front(nullptr), _rear(nullptr) {}
     ~linkedQueue() { clear(); }
-
+    void output();
     bool empty() const { return _front == nullptr; }
 
     int size() const { return _size; }
@@ -99,3 +99,13 @@ private:
     ListNode<T> *_rear = nullptr;
     int _size = 0;
 };
+
+template<typename T>
+void linkedQueue<T>::output() {
+    auto temp = _front;
+    while (temp != nullptr) {
+        std::cout << temp->element << " ";
+        temp = temp->next;
+    }
+
+}
