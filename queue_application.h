@@ -7,6 +7,7 @@
 #include "queue.h"
 #include<iostream>
 
+
 namespace queue_application_arrangetrains {
     using queue = linkedQueue<int>;
     queue first_station, target_station, buf[9];
@@ -45,13 +46,13 @@ namespace queue_application_arrangetrains {
                 show();
                 continue;
             } else {
-                for (int i = 0; i < 9; ++i) {
-                    if (buf[i].empty()) {
-                        buf[i].push(train);
+                for (auto &i: buf) {
+                    if (i.empty()) {
+                        i.push(train);
                         show();
                         break;
-                    } else if (buf[i].rear() < train) {
-                        buf[i].push(train);
+                    } else if (i.rear() < train) {
+                        i.push(train);
                         show();
                         break;
                     }
@@ -79,9 +80,9 @@ namespace queue_application_arrangetrains {
 }
 
 namespace queue_application_maze {
-    const array<char, 10> flag{' ', '*'};
+    const array<char, 10> sign{' ', '*'};
     using point = std::pair<int, int>;
-    linkedQueue <vector<point>> circle;
+    linkedQueue<vector<point>> circle;
     vector<vector<int>> maze = {
             {1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
             {1, 0, 0, 0, 1, 0, 0, 0, 0, 1},
@@ -98,26 +99,44 @@ namespace queue_application_maze {
     void find_path(point x, point y) {
         maze[x.first][x.second] = 100;
         int cnt = 100;
-
-        do {
-            ++cnt;
-            for (auto i = circle.rear().begin(); i != circle.rear().end(); ++i) {
+        bool flag=1;
+        while(flag)
+        {
+            for (vector<std::pair<int,int>>::iterator i = circle.rear().begin(); i != circle.rear().end(); ++i, ++cnt) {
                 if (i->first == y.first && i->second == y.second) {
                     std::cout << "find path" << std::endl;
+                    flag=0;
                     break;
-                } else {
-                    if (maze[i->first + 1][i->second + 1] == 0) {
-                        maze[i->first + 1][i->second + 1] = cnt;
-                    } else if (maze[i->first - 1][i->second + 1] == 0) {
-                        maze[i->first - 1][i->second + 1] = cnt;
-                    } else if (maze[i->first + 1][i->second - 1] == 0) {
-                        maze[i->first + 1][i->second - 1] = cnt;
-                    } else if (maze[i->first - 1][i->second - 1] == 0) {
-                        maze[i->first - 1][i->second - 1] = cnt;
-                    }
                 }
             }
-        } while (1);
+            vector<point> temp;
+            for (vector<std::pair<int,int>>::iterator i = circle.rear().begin(); i != circle.rear().end(); ++i) {
+                if (maze[i->first][i->second] == 0) {
+                    maze[i->first][i->second] = cnt;
+
+                    if (maze[i->first + 1][i->second] == 0) {
+                        temp.emplace_back(i->first + 1, i->second);
+                    }
+                    if (maze[i->first - 1][i->second] == 0) {
+                        temp.emplace_back(i->first - 1, i->second);
+                    }
+                    if (maze[i->first][i->second + 1] == 0) {
+                        temp.emplace_back(i->first, i->second + 1);
+                    }
+                    if (maze[i->first][i->second - 1] == 0) {
+                        temp.emplace_back(i->first, i->second - 1);
+                    }
+
+                }
+                if (temp.empty()) {
+                    flag=0;
+                    std::cout << "no path" << std::endl;
+                } else {
+                    circle.push(temp);
+                }
+            }
+        }
+
     }
 
     void show(vector<vector<int>> m = maze) {
@@ -128,8 +147,8 @@ namespace queue_application_maze {
             std::cout << std::endl;
         }
     }
-    void Test()
-    {
+
+    void Test() {
         point x{1, 1}, y{8, 8};
         find_path(x, y);
         show();

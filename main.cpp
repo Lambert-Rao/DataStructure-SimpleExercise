@@ -12,6 +12,6 @@
 using namespace std;
 
 int main() {
-    queue_application_arrangetrains::Test();
+    queue_application_maze::Test();
 
 }
