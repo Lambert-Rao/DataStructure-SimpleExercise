@@ -13,12 +13,14 @@
 
 using namespace std;
 
-int main() {
-    skipList<int, string> sl(15,102421312);
-    cout<<sl.randomHeight()<<endl;
-    skipList<int, string> s11(15,151255);
-    cout<<s11.randomHeight()<<endl;
-    skipList<int, string> s111(15,125155);
-    cout<<s111.randomHeight()<<endl;
-
+int main()
+{
+    skipList<int, string> s1(1555555, 1024312);
+    s1.insert(pair<int, string>(1, "one"));
+    s1.insert(pair<int, string>(2, "two"));
+    for(int i = 0; i < 100; i++)
+    {
+        s1.insert(pair<int, string>(i, "i"));
+    }
+    s1.show();
 }
