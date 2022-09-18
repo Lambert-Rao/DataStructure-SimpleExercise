@@ -10,17 +10,27 @@
 #include "queue.h"
 #include "sorted_chain.h"
 #include "skip_list.h"
+#include "hashing.h"
 
 using namespace std;
 
 int main()
 {
-    skipList<int, string> s1(1555555, 1024312);
-    s1.insert(pair<int, string>(1, "one"));
-    s1.insert(pair<int, string>(2, "two"));
-    for(int i = 0; i < 100; i++)
-    {
-        s1.insert(pair<int, string>(i, "i"));
-    }
-    s1.show();
+    // array that contains keys to be mapped
+    int a[] = {15, 11, 27, 8, 12};
+    int n = sizeof(a)/sizeof(a[0]);
+
+    // insert the keys into the hash table
+    Hash h(7);   // 7 is count of buckets in
+    // hash table
+    for (int i = 0; i < n; i++)
+        h.insertItem(a[i]);
+
+    // delete 12 from hash table
+    h.deleteItem(12);
+
+    // display the Hash table
+    h.displayHash();
+
+    return 0;
 }

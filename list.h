@@ -12,7 +12,7 @@ class ListNode {
 
 public:
     explicit ListNode(const T &data) : element(data) {}
-
+    ListNode() = default;
     ListNode(const T &data, ListNode<T> *next, ListNode<T> *prev) : element(data), next(next), prev(prev) {}
 
     T element;
