@@ -21,13 +21,17 @@ protected:
     ListNode<T> *prev = nullptr;
 };
 
+
+
 template<typename T>
 class List {
     friend class ListNode<T>;
 
 public:
     List() = default;
-
+    ListNode<T> &first();
+    ListNode<T> *begin();
+    ListNode<T> *end();
     List(const List<T> &rhs) = delete;
 
     List(initializer_list<T> il);
@@ -209,6 +213,24 @@ bool List<T>::empty() const{
 template<typename T>
 T &List<T>::last() const {
     return tail->element;
+}
+
+template<typename T>
+ListNode<T> &List<T>::first()
+{
+    return *head;
+}
+
+template<typename T>
+ListNode<T> *List<T>::begin()
+{
+    return head;
+}
+
+template<typename T>
+ListNode<T> *List<T>::end()
+{
+    return tail;
 }
 
 template<typename T>

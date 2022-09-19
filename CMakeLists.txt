@@ -6,4 +6,4 @@ set(CMAKE_CXX_STANDARD 20)
 
 
 
-add_executable(DS_Exercise main.cpp Matrix.cpp Matrix.h Vector.h list.h stack.h stack.h TEST.h stack_application.h queue.h queue_application.h sorted_chain.h skip_list.h hashing.h)
+add_executable(DS_Exercise main.cpp Matrix.cpp Matrix.h Vector.h list.h stack.h stack.h TEST.h stack_application.h queue.h queue_application.h sorted_chain.h skip_list.h hashing.h hashing_application.h)
