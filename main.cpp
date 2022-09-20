@@ -8,7 +8,6 @@
 #include "stack_application.h"
 #include "queue_application.h"
 #include "queue.h"
-#include "sorted_chain.h"
 #include "skip_list.h"
 #include "hashing.h"
 
