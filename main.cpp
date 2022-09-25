@@ -1,6 +1,8 @@
 #include <iostream>
 #include <algorithm>
 #include <unordered_map>
+#include <queue>
+
 
 #include "Matrix.h"
 #include "Vector.h"
@@ -12,12 +14,16 @@
 #include "queue.h"
 #include "skip_list.h"
 #include "hashing.h"
+#include "priority_queue.h"
 
 using namespace std;
 
 int main(int argc,char *argv[])
 {
-//     hashing_application_LZW::set_files();
-     unordered_map<string,int> hash;
+    priority_queue<int,vector<int>> pq;
+    pq.push(80);
+    pq.push(2);
+    cout<<pq.top()<<endl;
+
 
 }
