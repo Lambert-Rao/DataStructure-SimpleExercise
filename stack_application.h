@@ -64,7 +64,7 @@ namespace stack_application_switchbox
 {
     auto s = new VectorStack<int>(10);
 
-    bool check(initializer_list<int> il) {
+    bool check(std::initializer_list<int> il) {
         for (auto i: il) {
             if (s->empty())
                 s->push(i);
@@ -76,7 +76,7 @@ namespace stack_application_switchbox
         return s->empty();
     }
 
-    void test(initializer_list<int> il) {
+    void test(std::initializer_list<int> il) {
         if (check(il))
             std::cout << "Yes" << std::endl;
         else
@@ -90,19 +90,19 @@ namespace stack_application_maze
     template<unsigned row, unsigned col>//从零开始
     class Maze {
     public:
-        Maze(bitset<row * col> s) : position(s) {}
+        Maze(std::bitset<row * col> s) : position(s) {}
 
-        void show(ostream &os = cout) {
+        void show(std::ostream &os = std::cout) {
             for (int i = 0; i < row; i++) {
                 for (int j = 0; j < col; j++) {
                     os << ((position[pos(i, j)] == 0) ? "  " : "* ");
                 }
-                os << endl;
+                os << std::endl;
             }
         }
 
         void fine_path() {
-            auto past = bitset<row * col>(position);
+            auto past = std::bitset<row * col>(position);
             auto p = new VectorStack<unsigned>(row * col);
             p->push(pos(0, 0));
             position[pos(0, 0)] = 1;
@@ -113,13 +113,13 @@ namespace stack_application_maze
                     for (int i = 0; i < row; i++) {
                         for (int j = 0; j < col; j++) {
                             if(past[pos(i,j)]==1)
-                                cout<<"* ";
+                                std::cout<<"* ";
                             else if(position[pos(i,j)]==1 && past[pos(i,j)]==0)
-                                cout<<"# ";
+                                std::cout<<"# ";
                             else
-                                cout<<"  ";
+                                std::cout<<"  ";
                         }
-                        cout << endl;
+                        std::cout << std::endl;
                     }
                     return;
                 }
@@ -139,11 +139,11 @@ namespace stack_application_maze
                     position[p->pop()] = 1;
                 }
             }
-            cout << "No path" << endl;
+            std::cout << "No path" << std::endl;
         }
 
     private:
-        bitset<row * col> position;
+        std::bitset<row * col> position;
 
         inline unsigned pos(unsigned x, unsigned y) {
             return x * col + y;
@@ -151,14 +151,14 @@ namespace stack_application_maze
     };
 
     void test() {
-        Maze<10, 10> m(static_cast<bitset<100>>(
+        Maze<10, 10> m(static_cast<std::bitset<100>>(
                 "0111111000111110001010000101000"
                 "01111100010100001010010100101000"
                 "0111100010101010101001010101010"
                        ));
-        cout<<"initial:"<<endl;
+        std::cout<<"initial:"<<std::endl;
         m.show();
-        cout<<"result:"<<endl;
+        std::cout<<"result:"<<std::endl;
         m.fine_path();
     }
 }

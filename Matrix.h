@@ -4,8 +4,6 @@
 #include<map>
 #include <initializer_list>
 
-using namespace std;
-
 class Matrix {
 public:
     Matrix()=default;
@@ -24,7 +22,7 @@ public:
     int **data_ptr = nullptr;          //初始化空指针
     int row{}, col{};
 
-    string shape() const;               //打印矩阵形状
+    std::string shape() const;               //打印矩阵形状
     void print_all(std::ostream& os=std::cout) const;              //打印矩阵
 };
 
@@ -33,9 +31,9 @@ public:
 template<typename T>
 class SparseMatrix {
     using point= std::pair<std::pair<int, int>, T>;
-    friend ostream &operator<<(ostream &os, const SparseMatrix<T> &rhs) {
+    friend std::ostream &operator<<(std::ostream &os, const SparseMatrix<T> &rhs) {
         if(!std::is_same<T,int>::value)
-            cerr<<"暂不支持非int类型的稀疏矩阵"<<endl;
+            std::cerr<<"暂不支持非int类型的稀疏矩阵"<<std::endl;
         Matrix m(rhs.row, rhs.col);
         for(auto it=rhs.data.cbegin();it!=rhs.data.cend();it++)
         {
@@ -48,7 +46,7 @@ public:
     SparseMatrix transpose();
     SparseMatrix (int row, int col, std::initializer_list<point> il);
     SparseMatrix (const SparseMatrix<T> &rhs);
-    SparseMatrix(int row, int col, map<pair<int, int>, T> m_data);
+    SparseMatrix(int row, int col, std::map<std::pair<int, int>, T> m_data);
     SparseMatrix<T>& operator=(const SparseMatrix<T> &rhs);
     SparseMatrix<T> operator+(const SparseMatrix &rhs) const;
     SparseMatrix<T> operator-(const SparseMatrix &rhs) const;
@@ -57,7 +55,7 @@ private:
     std::list<point> data;
 };
 template<typename T>
-SparseMatrix<T>::SparseMatrix(int row, int col, initializer_list<point> il) {
+SparseMatrix<T>::SparseMatrix(int row, int col, std::initializer_list<point> il) {
     this->row=row;
     this->col=col;
     for (auto it = il.begin(); it != il.end(); it++)
@@ -77,8 +75,8 @@ SparseMatrix<T> SparseMatrix<T>::transpose() {
 template<typename T>
 SparseMatrix<T> SparseMatrix<T>::operator+(const SparseMatrix<T> &rhs) const {
     if(row!=rhs.row||col!=rhs.col)
-        cerr<<"矩阵形状不匹配"<<endl;
-    map<std::pair<int, int>, T> temp_map;
+        std::cerr<<"矩阵形状不匹配"<<std::endl;
+    std::map<std::pair<int, int>, T> temp_map;
     for(auto it=data.begin();it!=data.end();it++){
         temp_map[it->first]=it->second;
     }
@@ -118,7 +116,7 @@ SparseMatrix<T> SparseMatrix<T>::operator-(const SparseMatrix<T> &rhs) const {
 }
 
 template<typename T>
-SparseMatrix<T>::SparseMatrix(int row, int col, map<pair<int, int>, T> m_data) {
+SparseMatrix<T>::SparseMatrix(int row, int col, std::map<std::pair<int, int>, T> m_data) {
     this->row=row;
     this->col=col;
     for(auto it=m_data.begin();it!=m_data.end();it++){

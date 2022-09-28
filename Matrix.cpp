@@ -41,7 +41,7 @@ Matrix::Matrix(const Matrix &rhs) {
 
 Matrix Matrix::operator*(const Matrix &rhs) const {
     if (this->col != rhs.row) {
-        cerr << "shape error" << endl;
+        std::cerr << "shape error" << std::endl;
         exit(0);
     }
     Matrix m(this->row, rhs.col);
@@ -59,7 +59,7 @@ Matrix Matrix::operator*(const Matrix &rhs) const {
 
 Matrix Matrix::operator+(const Matrix &rhs) const {
     if (this->col != rhs.col || this->row != rhs.row) {
-        cerr << "shape error" << endl;
+        std::cerr << "shape error" << std::endl;
     }
     Matrix m(this->row, this->col);
     for (int i = 0; i < this->row; i++) {
@@ -72,7 +72,7 @@ Matrix Matrix::operator+(const Matrix &rhs) const {
 
 Matrix Matrix::operator-(const Matrix &rhs) const {
     if (this->col != rhs.col or this->row != rhs.row) {
-        cout << "shape error" << endl;
+        std::cout << "shape error" << std::endl;
     }
     Matrix m(this->row, this->col);
     for (int i = 0; i < this->row; i++) {
@@ -83,8 +83,8 @@ Matrix Matrix::operator-(const Matrix &rhs) const {
     return m;
 }
 
-string Matrix::shape() const {
-    string s = "(" + to_string(this->row) + "," + to_string(this->col) + ")";
+std::string Matrix::shape() const {
+    std::string s = "(" + std::to_string(this->row) + "," + std::to_string(this->col) + ")";
     return s;
 }
 
@@ -93,7 +93,7 @@ void Matrix::print_all(std::ostream& os) const {
         for (int j = 0; j < this->col; j++) {
             os << this->data_ptr[i][j] << " ";
         }
-        os << endl;
+        os << std::endl;
     }
 }
 
@@ -101,7 +101,7 @@ Matrix::Matrix(int row, int col, std::initializer_list<int> il) {
     this->row = row;
     this->col = col;
     if (row * col != il.size()) {
-        cerr << "shape error" << endl;
+        std::cerr << "shape error" << std::endl;
     }
     this->data_ptr = new int *[row];
     for (int i = 0; i < this->row; i++) {

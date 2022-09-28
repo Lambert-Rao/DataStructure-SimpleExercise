@@ -16,13 +16,13 @@ class hashTable
 public:
     hashTable() = default;
 
-    void insert(std::pair<string, string> rhs);
+    void insert(std::pair<std::string, std::string> rhs);
     hashTable& operator=(const hashTable &rhs)= default;
-    string operator[](const string &rhs);
+    std::string operator[](const std::string &rhs);
 
     size_t size;
 private:
-    uint64_t find(const string &key);
+    uint64_t find(const std::string &key);
 
     static uint64_t string_to_int(std::string s);
 
@@ -43,7 +43,7 @@ uint64_t hashTable<N>::string_to_int(std::string s)
 }
 
 template<uint64_t N>
-uint64_t hashTable<N>::find(const string &key)
+uint64_t hashTable<N>::find(const std::string &key)
 {
     auto n = string_to_int(key) % N;
 
@@ -58,12 +58,12 @@ uint64_t hashTable<N>::find(const string &key)
 }
 
 template<uint64_t N>
-string hashTable<N>::operator[](const string &rhs)
+std::string hashTable<N>::operator[](const std::string &rhs)
 {
     auto n = find(rhs);
     if (n != -1)
     {
-        ostringstream oss;
+        std::ostringstream oss;
         auto p = table[n].begin();
         for(;p!=table[n].end();p=p->next)
         {
@@ -78,7 +78,7 @@ string hashTable<N>::operator[](const string &rhs)
 }
 
 template<uint64_t N>
-void hashTable<N>::insert(std::pair<string, string> rhs)
+void hashTable<N>::insert(std::pair<std::string, std::string> rhs)
 {
     auto n = find(rhs.first);
     table[n].push_back(rhs);

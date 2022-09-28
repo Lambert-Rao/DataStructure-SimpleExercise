@@ -34,7 +34,7 @@ public:
     ListNode<T> *end();
     List(const List<T> &rhs) = delete;
 
-    List(initializer_list<T> il);
+    List(std::initializer_list<T> il);
 
     bool empty() const;
     ~List();
@@ -51,7 +51,7 @@ public:
     T pop_back();
     T& last() const;
 
-    explicit operator string() const;
+    explicit operator std::string() const;
 
 
 protected:
@@ -93,7 +93,7 @@ T List<T>::operator[](int index) const {
 }
 
 template<typename T>
-List<T>::List(initializer_list<T> il) {
+List<T>::List(std::initializer_list<T> il) {
     size = il.size();
     for (auto it = il.begin(); it != il.end(); it++) {
         push_back(*it);
@@ -149,12 +149,12 @@ void List<T>::erase(int index) {
 }
 
 template<typename T>
-List<T>::operator string() const {
-    ostringstream oss;
-    oss << "address of head: " << head << endl
-        << "address of tail: " << tail << endl
-        << "size: " << size << endl
-        << "elements: " << endl;
+List<T>::operator std::string() const {
+    std::ostringstream oss;
+    oss << "address of head: " << head << std::endl
+        << "address of tail: " << tail << std::endl
+        << "size: " << size << std::endl
+        << "elements: " << std::endl;
     for (ListNode<T> *p = head; p != nullptr; p = p->next)
         oss << p->element << ' ';
     return oss.str();
@@ -234,8 +234,8 @@ ListNode<T> *List<T>::end()
 }
 
 template<typename T>
-ostream& operator<<(ostream& os, const List<T>& rhs)
+std::ostream& operator<<(std::ostream& os, const List<T>& rhs)
 {
-    os << static_cast<string>(rhs);
+    os << static_cast<std::string>(rhs);
     return os;
 }

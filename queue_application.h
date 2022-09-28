@@ -80,10 +80,10 @@ namespace queue_application_arrangetrains {
 }
 
 namespace queue_application_maze {
-    const array<char, 10> sign{' ', '*'};
+    const std::array<char, 10> sign{' ', '*'};
     using point = std::pair<int, int>;
-    linkedQueue<vector<point>> circle;
-    vector<vector<int>> maze = {
+    linkedQueue<std::vector<point>> circle;
+    std::vector<std::vector<int>> maze = {
             {1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
             {1, 0, 0, 0, 1, 0, 0, 0, 0, 1},
             {1, 0, 1, 0, 1, 0, 1, 1, 0, 1},
@@ -102,15 +102,15 @@ namespace queue_application_maze {
         bool flag=1;
         while(flag)
         {
-            for (vector<std::pair<int,int>>::iterator i = circle.rear().begin(); i != circle.rear().end(); ++i, ++cnt) {
+            for (std::vector<std::pair<int,int>>::iterator i = circle.rear().begin(); i != circle.rear().end(); ++i, ++cnt) {
                 if (i->first == y.first && i->second == y.second) {
                     std::cout << "find path" << std::endl;
                     flag=0;
                     break;
                 }
             }
-            vector<point> temp;
-            for (vector<std::pair<int,int>>::iterator i = circle.rear().begin(); i != circle.rear().end(); ++i) {
+            std::vector<point> temp;
+            for (std::vector<std::pair<int,int>>::iterator i = circle.rear().begin(); i != circle.rear().end(); ++i) {
                 if (maze[i->first][i->second] == 0) {
                     maze[i->first][i->second] = cnt;
 
@@ -139,7 +139,7 @@ namespace queue_application_maze {
 
     }
 
-    void show(vector<vector<int>> m = maze) {
+    void show(std::vector<std::vector<int>> m = maze) {
         for (auto i = m.cbegin(); i != m.cend(); i++) {
             for (auto j = i->cbegin(); j != i->cend(); j++) {
                 std::cout << *j << ' ';

@@ -1,2 +1,3 @@
 # DataStructure-SimpleExercise
 数据结构的实现练习
+闲来无事就一边学数据结构，一边写一点

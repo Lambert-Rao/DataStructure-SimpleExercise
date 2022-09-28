@@ -14,7 +14,7 @@ template<typename T>
 class binaryTreeNode
 {
     friend class binaryTree<T>;
-
+public:
     T element;
     using ptr = binaryTreeNode<T> *;
     binaryTreeNode<T> *left;

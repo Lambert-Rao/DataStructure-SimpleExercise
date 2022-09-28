@@ -96,8 +96,8 @@ skipNode<key, value> *skipList<key, value>::find(const key &k, bool mod) const
 template<typename key, typename value>
 int skipList<key, value>::randomHeight()
 {
-    static default_random_engine e(time(nullptr));
-    static uniform_int_distribution<unsigned> u(0, 1);
+    static std::default_random_engine e(time(nullptr));
+    static std::uniform_int_distribution<unsigned> u(0, 1);
 
     int lev = 0;
     while (u(e) && lev < maxheight)
@@ -112,7 +112,7 @@ const value &skipList<key, value>::operator[](const key &theKey) const
     if (temp)
         return temp->element.second;
     else
-        throw out_of_range("key not found");
+        throw std::out_of_range("key not found");
 }
 
 template<typename key, typename value>
@@ -120,9 +120,9 @@ void skipList<key, value>::insert(const ElmType &rhs)
 {
     if (rhs.first >= largekey)
     {
-        ostringstream oss;
+        std::ostringstream oss;
         oss << "key too large, key = " << rhs.first << ", largekey = " << largekey;
-        throw out_of_range(oss.str());
+        throw std::out_of_range(oss.str());
     }
     auto p = find(rhs.first, 1);
     if (p!= nullptr&&p->element.first == rhs.first)
@@ -170,17 +170,17 @@ void skipList<key, value>::erase(const key &theKey)
 template<typename key, typename value>
 void skipList<key, value>::show() const
 {
-    cout << "size = " << size << ", height = " << height << ",largekey = "<<largekey<<endl;
+    std::cout << "size = " << size << ", height = " << height << ",largekey = "<<largekey<<std::endl;
     auto p= sentinal;
     while (p!=tail)
     {
-        cout<<p->element.first<<"::"<<p->element.second<<"\t\t";
+        std::cout<<p->element.first<<"::"<<p->element.second<<"\t\t";
 //        for (int i = 0;i<height ; i++)
 //        {
 //            cout<<p->next[i]->element.first<<"  ";
 //        }
 //错误，没想出解法
-        cout<<endl;
+        std::cout<<std::endl;
         p=p->next[0];
     }
 
