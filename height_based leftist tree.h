@@ -16,7 +16,7 @@ public:
     max_HBLT(std::initializer_list<T> list);
     void merge(node_type &rhs);
     void push(const T &rhs);
-    void pop();
+    T pop();
     size_t Size(){return size;}
 private:
     node_type *root;
@@ -67,17 +67,18 @@ void max_HBLT<T>::destroy(max_HBLT::node_type *&root)
 }
 
 template<typename T>
-void max_HBLT<T>::pop()
+T max_HBLT<T>::pop()
 {
     if (root == nullptr)
-        return;
+        throw std::runtime_error("empty tree");
     auto temp = root;
+    T data = std::move(root->element.second);
     root = nullptr;
     merge(root, temp->left);
     merge(root, temp->right);
     delete temp;
     size--;
-
+    return data;
 }
 
 template<typename T>

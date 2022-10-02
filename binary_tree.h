@@ -51,10 +51,8 @@ public:
     }
 
     ~binaryTree()
-    { clear(); }
+    { destroy(root); }
 
-    void clear()
-    { clear(root); }
 
     void preOrder()
     { preOrder(root); }
@@ -78,7 +76,7 @@ public:
 
     void insert(T x);
 
-    void remove(T x)=delete;
+    void erase(T x);
 
 
     void destroy(ptr &t);
@@ -89,7 +87,6 @@ private:
     ptr find(const T &x) const;
     ptr search(const T &x);
     void preOrder(ptr t);
-
     void inOrder(ptr t);
 
     void postOrder(ptr t);
@@ -238,3 +235,59 @@ void binaryTree<T>::destroy(binaryTree::ptr &t)
 
 }
 
+template<typename T>
+void binaryTree<T>::erase(T x)
+{
+    auto p=root;
+    decltype(p) pp(nullptr);
+    while (p != nullptr)
+    {
+        pp=p;
+        if (p->element == x)
+            break;
+        else if (p->element > x)
+            p = p->left;
+        else
+            p = p->right;
+    }
+
+    if(p==nullptr)
+        return;
+
+    else if(p->left&&p->right)
+    {
+        auto s(p->left);
+        auto ps(p);
+        while (s->right!= nullptr)
+        {
+            ps=s;
+            s=s->right;
+        }
+        p->element=s->element;
+        auto q= new binaryTreeNode<T>(s->element,p->left,p->right);
+        if(pp== nullptr)
+            root=q;
+        else if(pp->left==p)
+            pp->left=q;
+        else
+            pp->right=q;
+        /////////////////////////////////??????????????????????????????
+        delete p;
+        p=s;
+    }
+    else
+    {
+        ptr c;
+        if (p->left)
+            c = p->left;
+        else
+            c = p->right;
+        if (p == root)
+            root = c;
+        else if (pp->left == p)
+            pp->left = c;
+        else
+            pp->right = c;
+        delete p;
+    }
+}

@@ -2,11 +2,11 @@
 #include <array>
 
 template<typename ElemType>
-class Vector
+class vector
 {
 public:
 	//constructor
-	Vector(std::initializer_list<ElemType> il)
+	vector(std::initializer_list<ElemType> il)
 	{
 		_size = il.size();
 		_capacity = _size;
@@ -18,7 +18,7 @@ public:
 	}
 
 	template<ElemType,size_t N>
-	Vector(std::array<ElemType, N> array)
+	vector(std::array<ElemType, N> array)
 	{
 		_size = array.size();
 		_capacity = _size;
@@ -26,7 +26,7 @@ public:
         for (size_t i = 0; i < _size; i++)
             _pointer[i] = array[i];
 	}
-	explicit  Vector(int capacity=0)
+	explicit  vector(int capacity=0)
 	{
 		_size = 0;
 		_capacity = capacity;
@@ -41,7 +41,7 @@ public:
 		return _capacity;
 	}
 	//destructor
-	~Vector()
+	~vector()
 	{
 		delete[] _pointer;
 	}

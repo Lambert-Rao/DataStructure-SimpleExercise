@@ -4,7 +4,7 @@
 
 #pragma once
 
-#include "Vector.h"
+#include "vector.h"
 #include "list.h"
 
 template<typename T>
@@ -19,14 +19,14 @@ public:
 };
 
 template<typename T>
-class VectorStack : public Stack<T> , public Vector<T> {
+class VectorStack : public Stack<T> , public vector<T> {
 public:
-    VectorStack(int initial_capacity = 10) : Vector<T>(initial_capacity) {}
-    bool empty() const override { return Vector<T>::empty(); }
-    int size() const override { return Vector<T>::size(); }
-    T& top() const override { return Vector<T>::_pointer[size() - 1]; }
-    T pop() override { return Vector<T>::pop_back(); }
-    void push(const T &data) override { Vector<T>::push_back(data); }
+    VectorStack(int initial_capacity = 10) : vector<T>(initial_capacity) {}
+    bool empty() const override { return vector<T>::empty(); }
+    int size() const override { return vector<T>::size(); }
+    T& top() const override { return vector<T>::_pointer[size() - 1]; }
+    T pop() override { return vector<T>::pop_back(); }
+    void push(const T &data) override { vector<T>::push_back(data); }
 };
 
 template<typename T>
