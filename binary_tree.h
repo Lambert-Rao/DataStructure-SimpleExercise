@@ -239,13 +239,11 @@ template<typename T>
 void binaryTree<T>::erase(T x)
 {
     auto p=root;
-    decltype(p) pp(nullptr);
-    while (p != nullptr)
+    ptr pp(nullptr);
+    while (p != nullptr&&p->element != x)
     {
         pp=p;
-        if (p->element == x)
-            break;
-        else if (p->element > x)
+        if (p->element > x)
             p = p->left;
         else
             p = p->right;
@@ -263,7 +261,6 @@ void binaryTree<T>::erase(T x)
             ps=s;
             s=s->right;
         }
-        p->element=s->element;
         auto q= new binaryTreeNode<T>(s->element,p->left,p->right);
         if(pp== nullptr)
             root=q;
@@ -271,7 +268,6 @@ void binaryTree<T>::erase(T x)
             pp->left=q;
         else
             pp->right=q;
-        /////////////////////////////////??????????????????????????????
         delete p;
         p=s;
     }

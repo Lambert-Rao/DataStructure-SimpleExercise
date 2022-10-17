@@ -16,22 +16,13 @@
 #include "hashing.h"
 #include "priority_queue.h"
 #include "height_based leftist tree.h"
+#include "binary_tree.h"
 
 using namespace std;
 
 int main(int argc,char *argv[])
 {
-    priority_queue<int> a{};
-    for (int i = 0; i < 10; ++i)
-    {
-        a.push(i);
-    }
-    for (int i = 0; i < 10; ++i)
-    {
-        cout << a.top() << endl;
-        a.pop();
-    }
-    return 0;
-
-
+    int a[3];
+    a[2]=5;
+    cout<<*(a+2);
 }
