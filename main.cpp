@@ -17,12 +17,15 @@
 #include "priority_queue.h"
 #include "height_based leftist tree.h"
 #include "binary_tree.h"
+#include "graph.h"
 
 using namespace std;
 
 int main(int argc,char *argv[])
 {
-    int a[3];
-    a[2]=5;
-    cout<<*(a+2);
+    adjencencyWdigraph<int> a(10);
+    a.insertEdge(1,2,1);
+    a.insertEdge(7,1,1);
+    cout<<a.inDegree(1)<<endl<<a.outDegree(1)<<endl;
+
 }
