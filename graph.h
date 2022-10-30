@@ -16,6 +16,11 @@ public:
 
     edge() = default;
 
+    auto operator<=>(const edge &rhs)
+    {
+        return weight <=> rhs.weight;
+    }
+
     edge(T from, T to, int weight) : from(from), to(to), weight(weight)
     {}
 };
@@ -189,6 +194,25 @@ public:
     T no_edge() const
     { return noEdge; }
 
+    std::pair<T, T> pair(int i, int j) const
+    {
+        checkVertex(i);
+        checkVertex(j);
+        return std::make_pair(i, j);
+    }
+
+    edge<T> edge(int i, int j) const
+    {
+        checkVertex(i);
+        checkVertex(j);
+        return edge(i, j, a[i][j]);
+    }
+
+    Iterator *iterator(int v) const
+    {
+        checkVertex(v);
+        return new Iterator(a[v], noEdge, n);
+    }
 
 protected:
     int n;
@@ -197,11 +221,6 @@ protected:
     T noEdge;
 
 
-    Iterator *iterator(int v) const
-    {
-        checkVertex(v);
-        return new Iterator(a[v], noEdge, n);
-    }
 };
 
 template<typename T>

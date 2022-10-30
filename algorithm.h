@@ -6,10 +6,13 @@
 
 #include <iostream>
 #include <stack>
+#include <queue>
+#include <array>
 #include "graph.h"
 
 namespace GREEDY
 {
+    using namespace std;
     //pseudo code
     /*
     bool topologicalOrder(int *theOrder)
@@ -104,6 +107,36 @@ namespace GREEDY
                 }
         }
         delete[] sign;
+    }
+
+    bool kruskal(const adjencencyWdigraph<int> &graph, edge<int> *result)
+    {
+        int ver_num = graph.numberOfVertices();
+        int edg_num = graph.numberOfEdges();
+        int index = 0;
+        std::vector<edge<int>> edges(edg_num);
+        for (int i = 1; i <= ver_num; i++)
+        {
+            auto *iter = graph.iterator(i);
+            int j;
+            int weight;
+            while ((j = iter->next(weight)) != 0)
+                if (i < j)
+                    edges[++index] = edge<int>(i, j, weight);
+        }
+        std::sort(edges.begin(), edges.end(), [](const edge<int> &a, const edge<int> &b)
+        { return a.weight < b.weight; });
+        while (edges.size() < edg_num - 1)
+        {
+            edge<int> e = edges.back();
+            edges.pop_back();
+            //判断是否有环
+            if (!graph.isCycle(e))
+            {
+                result[edges.size()] = e;
+            }
+        }
+        return (edges.size() == 1);
     }
 }
 

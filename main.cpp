@@ -1,6 +1,7 @@
 #include <iostream>
 #include <algorithm>
 #include <unordered_map>
+#include <vector>
 #include <queue>
 #include <set>
 
@@ -23,8 +24,8 @@ using namespace std;
 
 int main(int argc, char *argv[])
 {
-
-    system("cls");
-    int c = INFINITY;
-    cout << c << endl;
+    std::vector<int> v{1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    sort(v.begin(), v.end());
+    for (auto i: v)
+        cout << i << " ";
 }
