@@ -21,11 +21,10 @@
 
 using namespace std;
 
-int main(int argc,char *argv[])
+int main(int argc, char *argv[])
 {
-    adjencencyWdigraph<int> a(10);
-    a.insertEdge(1,2,1);
-    a.insertEdge(7,1,1);
-    cout<<a.inDegree(1)<<endl<<a.outDegree(1)<<endl;
 
+    system("cls");
+    int c = INFINITY;
+    cout << c << endl;
 }

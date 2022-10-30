@@ -12,12 +12,14 @@
 template<uint64_t N = 100>
 class hashTable
 {
-    using hashlist=List<std::pair<std::string,std::string>>;
+    using hashlist = List<std::pair<std::string, std::string>>;
 public:
     hashTable() = default;
 
     void insert(std::pair<std::string, std::string> rhs);
-    hashTable& operator=(const hashTable &rhs)= default;
+
+    hashTable &operator=(const hashTable &rhs) = default;
+
     std::string operator[](const std::string &rhs);
 
     size_t size;
@@ -26,7 +28,7 @@ private:
 
     static uint64_t string_to_int(std::string s);
 
-    std::array<hashlist , N> table;
+    std::array<hashlist, N> table;
 };
 
 
@@ -50,8 +52,7 @@ uint64_t hashTable<N>::find(const std::string &key)
     if (table[n].first().element.first == key)
     {
         return n;
-    }
-    else
+    } else
     {
         return -1;
     }
@@ -65,11 +66,11 @@ std::string hashTable<N>::operator[](const std::string &rhs)
     {
         std::ostringstream oss;
         auto p = table[n].begin();
-        for(;p!=table[n].end();p=p->next)
+        for (; p != table[n].end(); p = p->next)
         {
-            if(p->element.first==rhs)
+            if (p->element.first == rhs)
             {
-                oss<< p->element.second<<" ";
+                oss << p->element.second << " ";
             }
         }
         return oss.str();
@@ -128,7 +129,7 @@ void Hash::deleteItem(int key)
     int index = hashFunction(key);
 
     // find the key in (index)th list
-    list<int>::iterator i;
+    list<int>::Iterator i;
     for (i = table[index].begin();
          i != table[index].end(); i++)
     {

@@ -50,7 +50,7 @@ template<typename T>
 class adjencencyWdigraph
 {
 public:
-    adjencencyWdigraph(int Ver = 0, T thenoedge = 0)
+    adjencencyWdigraph(int Ver = 0, T thenoedge = '\0')
     {
         if (Ver < 0)
             throw "Ver must be positive";
@@ -124,6 +124,13 @@ public:
 
     int degree(int v) const = delete;
 
+    T weight(int v1, int v2) const
+    {
+        checkVertex(v1);
+        checkVertex(v2);
+        return a[v1][v2];
+    }
+
     virtual int inDegree(int v) const
     {
         checkVertex(v);
@@ -172,19 +179,29 @@ public:
             return 0;
         }
 
-    protected:
+    private:
         T *row;
         T noEdge;
         int n;
         int current;
-
     };
+
+    T no_edge() const
+    { return noEdge; }
+
 
 protected:
     int n;
     int e;
     T **a;
     T noEdge;
+
+
+    Iterator *iterator(int v) const
+    {
+        checkVertex(v);
+        return new Iterator(a[v], noEdge, n);
+    }
 };
 
 template<typename T>
@@ -225,6 +242,7 @@ public:
             e++;
         }
     }
+
     void eraseEdge(int v1, int v2)
     {
         if (a[v1][v2] != -1)
@@ -233,12 +251,15 @@ public:
             e--;
         }
     }
+
     void checkVertex(int v) const
     {
         if (v < 1 || v > n)
             throw std::range_error("bad vertex");
     }
-    int degree(int v) const=delete;
+
+    int degree(int v) const = delete;
+
     int inDegree(int v) const
     {
         checkVertex(v);
@@ -248,38 +269,41 @@ public:
                 sum++;
         return sum;
     }
+
     int outDegree(int v) const
     {
         checkVertex(v);
         return a[v].size();
     }
-    void bfs(int v,int reach[],int label)
+
+    void bfs(int v, int reach[], int label)
     {
         std::forward_list<int> q(10);
         reach[v] = label;
         q.push_front(v);
-        while(!q.empty())
+        while (!q.empty())
         {
             int w = q.front();
             q.pop_front();
-            for(int u=1;u<=n;u++)
+            for (int u = 1; u <= n; u++)
             {
-                if(a[w][u]!=-1&&reach[u]==0)
+                if (a[w][u] != -1 && reach[u] == 0)
                 {
-                    reach[u]=label;
+                    reach[u] = label;
                     q.push_front(u);
                 }
             }
         }
 
     }
-void dfs(int v,int reach[],int label)
+
+    void dfs(int v, int reach[], int label)
     {
-        reach[v]=label;
-        for(int u=1;u<=n;u++)
+        reach[v] = label;
+        for (int u = 1; u <= n; u++)
         {
-            if(a[v][u]!=-1&&reach[u]==0)
-                dfs(u,reach,label);
+            if (a[v][u] != -1 && reach[u] == 0)
+                dfs(u, reach, label);
         }
     }
 
