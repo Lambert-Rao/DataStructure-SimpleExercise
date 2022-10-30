@@ -253,4 +253,34 @@ public:
         checkVertex(v);
         return a[v].size();
     }
+    void bfs(int v,int reach[],int label)
+    {
+        std::forward_list<int> q(10);
+        reach[v] = label;
+        q.push_front(v);
+        while(!q.empty())
+        {
+            int w = q.front();
+            q.pop_front();
+            for(int u=1;u<=n;u++)
+            {
+                if(a[w][u]!=-1&&reach[u]==0)
+                {
+                    reach[u]=label;
+                    q.push_front(u);
+                }
+            }
+        }
+
+    }
+void dfs(int v,int reach[],int label)
+    {
+        reach[v]=label;
+        for(int u=1;u<=n;u++)
+        {
+            if(a[v][u]!=-1&&reach[u]==0)
+                dfs(u,reach,label);
+        }
+    }
+
 };
